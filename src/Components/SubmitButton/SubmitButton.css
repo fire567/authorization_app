@@ -1,0 +1,30 @@
+.log_in_button_wrapper {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.log_in_button {
+    height: 30px;
+    width: 70px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.active {
+    background-color: #52abff;
+}
+
+.disabled {
+    background-color: #ccd1d9;
+}
+
+.active:hover {
+    background-color: #66b0fa;
+}
+
+.active:active {
+    background-color: #2a92fa;
+}

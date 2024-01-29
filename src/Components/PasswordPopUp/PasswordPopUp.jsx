@@ -1,6 +1,6 @@
 import "./PasswordPopUp.css";
 
-const PasswordPopUp = ({
+export const PasswordPopUp = ({
     lengthCheckState,
     upperCaseCheckState,
     lowerCaseCheckState,
@@ -46,5 +46,3 @@ const PasswordPopUp = ({
         </div>
     );
 };
-
-export default PasswordPopUp;

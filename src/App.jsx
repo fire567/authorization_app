@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import AuthPage from "./Pages/AuthPage/AuthPage";
-import UserPage from "./Pages/UserPage/UserPage";
+import { AuthPageController } from "./Pages/AuthPageController/AuthPageController";
+import { UserPageController } from "./Pages/UserPageController/UserPageController";
 import "./App.css";
+import { ErrorPage } from "./Components/ErrPage/ErrorPage";
+import React from "react";
 
-const App = () => {
+export const App = () => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
@@ -29,16 +31,20 @@ const App = () => {
         <div className="App">
             <Routes>
                 <Route
-                    element={<AuthPage setUserData={setUserData} />}
+                    element={<AuthPageController setUserData={setUserData} />}
                     path="/"
                 />
                 <Route
-                    element={<UserPage setUserData={setUserData} />}
+                    element={
+                        <UserPageController
+                            setUserData={setUserData}
+                            userData={userData}
+                        />
+                    }
                     path="/user"
                 />
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </div>
     );
 };
-
-export default App;

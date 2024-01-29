@@ -1,62 +1,72 @@
-export const lengthCheck = (password, setLengthCheckState) => {
+export const lengthCheck = (password) => {
     if (password.length >= 8) {
-        setLengthCheckState(true);
         return true;
     }
-    setLengthCheckState(false);
     return false;
 };
 
-export const upperCaseCheck = (password, setUpperCaseCheck) => {
-    for (let i = 0; i < password.length; i++) {
-        if (password[i] === password[i].toUpperCase()) {
-            setUpperCaseCheck(true);
-            return true;
-        }
+export const upperCaseCheck = (password) => {
+    if (/[A-Z]/.test(password)) {
+        return true;
     }
-    setUpperCaseCheck(false);
     return false;
 };
 
-export const lowerCaseCheck = (password, setLowerCaseCheck) => {
-    for (let i = 0; i < password.length; i++) {
-        if (password[i] === password[i].toLowerCase()) {
-            setLowerCaseCheck(true);
-            return true;
-        }
+export const lowerCaseCheck = (password) => {
+    if (/[a-z]/.test(password)) {
+        return true;
     }
-    setLowerCaseCheck(false);
     return false;
 };
 
-export const isNumberCheck = (password, setIsNumberCheck) => {
-    for (let i = 0; i < password.length; i++) {
-        if (!isNaN(password[i])) {
-            setIsNumberCheck(true);
-            return true;
-        }
+export const isNumberCheck = (password) => {
+    if (/[0-9]/.test(password)) {
+        return true;
     }
-    setIsNumberCheck(false);
     return false;
 };
 
 const isLetter = /^\p{L}$/u;
 
-export const isLatinCheck = (password, setIsLatinCheck) => {
+export const isLatinCheck = (password) => {
     for (let i = 0; i < password.length; i++) {
         if (isLetter.test(password[i]) && !/[a-zA-Z]/.test(password[i])) {
-            setIsLatinCheck(false);
             return false;
         }
     }
 
-    setIsLatinCheck(password.length > 0 ? true : false);
     return password.length > 0 ? true : false;
 };
 
-export const isSpecialSymbol = (password, setIsSpecialSymbol) => {
+export const isSpecialSymbol = (password) => {
     const isContainsSymbol = password.match(/[!@#$%^&()_+?]/);
 
-    setIsSpecialSymbol(isContainsSymbol ? true : false);
     return isContainsSymbol ? true : false;
+};
+
+export const passwordValidator = (
+    password,
+    lengthCheckState,
+    upperCaseCheckState,
+    lowerCaseCheckState,
+    isNumberCheckState,
+    isLatinCheckState,
+    isSpecialSymbolState,
+    setErrorMessage
+) => {
+    if (password.length >= 8) {
+        if (
+            lengthCheckState &&
+            upperCaseCheckState &&
+            lowerCaseCheckState &&
+            isNumberCheckState &&
+            isLatinCheckState &&
+            isSpecialSymbolState
+        ) {
+            setErrorMessage("");
+            return true;
+        } else {
+            return false;
+        }
+    }
 };
