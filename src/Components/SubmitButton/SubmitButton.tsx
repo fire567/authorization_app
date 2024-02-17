@@ -22,7 +22,11 @@ export const SubmitButton: FC<SubmitButtonProps> = ({
                 disabled={!isValidPassword}
                 style={{ backgroundColor: `${isLoading && disabled}` }}
             />
-            <img className={isLoading ? loading_img : hidden} src={loading} />
+            <img
+                className={isLoading ? loading_img : hidden}
+                src={loading}
+                alt="loading..."
+            />
         </div>
     );
 };

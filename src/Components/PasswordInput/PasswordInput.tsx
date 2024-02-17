@@ -35,6 +35,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({
                 className={eye_pic}
                 src={eye}
                 onClick={() => setShowPassword(!showPassword)}
+                alt="eye"
             />
             {showHint && (
                 <PasswordPopUp

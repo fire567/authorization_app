@@ -30,7 +30,11 @@ export const UserPageComponent: FC<UserPageComponentProps> = ({
         <div className={user_page_wrapper}>
             <Header logOutHandler={logOutHandler} user={user} />
             <div className={user_info_wrapper}>
-                <img className={loading_page_img} src={loading_page} />
+                <img
+                    className={loading_page_img}
+                    src={loading_page}
+                    alt="loading..."
+                />
             </div>
         </div>
     );
