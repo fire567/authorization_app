@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { LoginInputProps } from "../../ts/interfaces";
+import { LoginInputProps } from "./LoginInput.types";
 import { input_wrapper, input_field } from "./LoginInput.style";
 
 export const LoginInput: FC<LoginInputProps> = ({ login, setLogin }) => {

@@ -1,26 +1,16 @@
 import { css } from "@emotion/css";
 
-export const circle_true = css({
-    width: "20px",
-    height: "20px",
-    borderRadius: "15px",
-    position: "absolute",
-    left: "215px",
-    top: "27px",
-    backgroundColor: "green",
-    border: "1px solid #d7d8d9",
-});
-
-export const circle_false = css({
-    width: "20px",
-    height: "20px",
-    borderRadius: "15px",
-    position: "absolute",
-    left: "215px",
-    top: "27px",
-    backgroundColor: "#d60229",
-    border: "1px solid #d7d8d9",
-});
+export const circle = (isValid?: boolean) =>
+    css({
+        width: "20px",
+        height: "20px",
+        borderRadius: "15px",
+        position: "absolute",
+        left: "215px",
+        top: "27px",
+        backgroundColor: isValid ? "green" : "#d60229",
+        border: "1px solid #d7d8d9",
+    });
 
 export const marker_false = css({
     "&:after": {

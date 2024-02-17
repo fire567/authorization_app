@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { UserInfoProps } from "../../ts/interfaces";
+import { UserInfoProps } from "./UserInfo.types";
 import { current_info } from "./UserInfo.style";
 
 export const UserInfo: FC<UserInfoProps> = ({ userInfo }) => {

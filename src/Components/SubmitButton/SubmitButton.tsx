@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SubmitButtonProps } from "../../ts/interfaces.js";
+import { SubmitButtonProps } from "./SubmitButton.types";
 import {
     log_in_button_wrapper,
     active,

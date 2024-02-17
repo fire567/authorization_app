@@ -1,7 +1,7 @@
 import { PasswordPopUp } from "../PasswordPopUp/PasswordPopUp";
 import { ValidMarker } from "../ValidMarker/ValidMarker";
 import { FC } from "react";
-import { PasswordInputProps } from "../../ts/interfaces";
+import { PasswordInputProps } from "./PasswordInput.types";
 import { input_wrapper, input_field, eye_pic } from "./PasswordInput.styles";
 import eye from "../../pics/eye.svg";
 

@@ -1,15 +1,10 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { useEffect } from "react";
 import { FC } from "react";
-import { UserData } from "../../ts/interfaces";
+import { UserData } from "../AuthPageController/AuthPageController.types";
 import { getUser } from "../../api/api";
 import { UserPageComponent } from "../../Components/UserPageComponent/UserPageComponent";
 import { useNavigate } from "react-router-dom";
-import React from "react";
-
-interface UserPageControllerProps {
-    setUserData: Dispatch<SetStateAction<null>>;
-    userData: UserData | null;
-}
+import { UserPageControllerProps } from "./UserPageController.types";
 
 export const UserPageController: FC<UserPageControllerProps> = ({
     setUserData,

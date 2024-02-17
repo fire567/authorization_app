@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { UserPageComponentProps } from "../../ts/interfaces";
+import { UserPageComponentProps } from "./UserPageComponent.types";
 import { Header } from "../Header/Header";
 import { Avatar } from "../Avatar/Avatar";
 import { UserInfo } from "../UserInfo/UserInfo";

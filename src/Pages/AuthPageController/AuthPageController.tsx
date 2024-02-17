@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import {
     lengthCheck,
     upperCaseCheck,
@@ -11,41 +11,23 @@ import {
 import { getUser } from "../../api/api";
 import { AuthPageComponent } from "../../Components/AuthPageComponent/AuthPageComponent";
 import { useNavigate } from "react-router-dom";
-import { UserData } from "../../ts/interfaces";
-
-interface User {
-    userData: UserData | null;
-    setUserData: Dispatch<SetStateAction<null>>;
-}
+import { User } from "./AuthPageController.types";
+import React from "react";
 
 export const AuthPageController: FC<User> = ({ userData, setUserData }) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const [showHint, setShowHint] = useState<boolean>(false);
-    const [errorMessage, setErrorMessage] = useState<string>("");
-    const [isValidPassword, setIsValidPassword] = useState<boolean | undefined>(
-        false
-    );
-    const [lengthCheckState, setLengthCheckState] = useState<
-        boolean | undefined
-    >(false);
-    const [upperCaseCheckState, setUpperCaseCheck] = useState<
-        boolean | undefined
-    >(false);
-    const [lowerCaseCheckState, setLowerCaseCheck] = useState<
-        boolean | undefined
-    >(false);
-    const [isNumberCheckState, setIsNumberCheck] = useState<
-        boolean | undefined
-    >(false);
-    const [isLatinCheckState, setIsLatinCheck] = useState<boolean | undefined>(
-        false
-    );
-    const [isSpecialSymbolState, setIsSpecialSymbol] = useState<
-        boolean | undefined
-    >(false);
-    const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [showHint, setShowHint] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isValidPassword, setIsValidPassword] = useState(false);
+    const [lengthCheckState, setLengthCheckState] = useState(false);
+    const [upperCaseCheckState, setUpperCaseCheck] = useState(false);
+    const [lowerCaseCheckState, setLowerCaseCheck] = useState(false);
+    const [isNumberCheckState, setIsNumberCheck] = useState(false);
+    const [isLatinCheckState, setIsLatinCheck] = useState(false);
+    const [isSpecialSymbolState, setIsSpecialSymbol] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -54,7 +36,9 @@ export const AuthPageController: FC<User> = ({ userData, setUserData }) => {
         }
     }, [userData]);
 
-    const authHandler = (e: { preventDefault: () => void }) => {
+    const authHandler: React.FormEventHandler<HTMLFormElement> = (e: {
+        preventDefault: () => void;
+    }) => {
         if (isValidPassword) {
             setIsLoading(true);
             getUser(login)

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PasswordPopUpProps } from "../../ts/interfaces";
+import { PasswordPopUpProps } from "./PasswordPopUp.types";
 import {
     pop_up_wrapper,
     correct_password,

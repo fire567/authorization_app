@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AuthPageComponentProps } from "../../ts/interfaces";
+import { AuthPageComponentProps } from "../AuthPageComponent/AuthPageComponent.types";
 import { LoginInput } from "../LoginInput/LoginInput";
 import { PasswordInput } from "../PasswordInput/PasswordInput";
 import { SubmitButton } from "../SubmitButton/SubmitButton";

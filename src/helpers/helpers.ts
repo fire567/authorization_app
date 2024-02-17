@@ -46,13 +46,13 @@ export const isSpecialSymbol = (password: string) => {
 
 export const passwordValidator = (
     password: string,
-    lengthCheckState: boolean | undefined,
-    upperCaseCheckState: boolean | undefined,
-    lowerCaseCheckState: boolean | undefined,
-    isNumberCheckState: boolean | undefined,
-    isLatinCheckState: boolean | undefined,
-    isSpecialSymbolState: boolean | undefined,
-    setErrorMessage: (value: string) => void
+    lengthCheckState: boolean,
+    upperCaseCheckState: boolean,
+    lowerCaseCheckState: boolean,
+    isNumberCheckState: boolean,
+    isLatinCheckState: boolean,
+    isSpecialSymbolState: boolean,
+    setErrorMessage: (text: string) => void
 ) => {
     if (password.length >= 8) {
         if (
@@ -69,4 +69,5 @@ export const passwordValidator = (
             return false;
         }
     }
+    return false;
 };
